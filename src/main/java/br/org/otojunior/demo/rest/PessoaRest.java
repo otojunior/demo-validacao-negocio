@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.org.otojunior.demo;
+package br.org.otojunior.demo.rest;
 
 import java.util.List;
 
@@ -13,28 +13,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.org.otojunior.demo.entidade.Pessoa;
+import br.org.otojunior.demo.service.PessoaService;
+
 /**
  * @author otoju
  *
  */
 @RestController
 @RequestMapping("/api")
-public class DemoRest {
+public class PessoaRest {
 	@Autowired
-	private DemoService service;
+	private PessoaService service;
 	
 	/**
 	 * 
 	 * @param dto
 	 * @return
 	 */
-	@PostMapping("/demo")
-	public ResponseEntity<DemoEntidade> inserir(@RequestBody DemoDto dto) {
-		DemoEntidade entidade = new DemoEntidade();
+	@PostMapping("/pessoa")
+	public ResponseEntity<Pessoa> inserir(@RequestBody PessoaDto dto) {
+		Pessoa entidade = new Pessoa();
 		entidade.setCodigo(dto.getCodigo());
 		entidade.setNome(dto.getNome());
 		
-		DemoEntidade retorno = service.inserir(entidade);
+		Pessoa retorno = service.inserir(entidade);
 		return ResponseEntity.ok(retorno);
 	}
 	
@@ -43,9 +46,9 @@ public class DemoRest {
 	 * @param dto
 	 * @return
 	 */
-	@GetMapping("/demo")
-	public ResponseEntity<List<DemoEntidade>> listar() {
-		List<DemoEntidade> retorno = service.listar();
+	@GetMapping("/pessoa")
+	public ResponseEntity<List<Pessoa>> listar() {
+		List<Pessoa> retorno = service.listar();
 		return ResponseEntity.ok(retorno);
 	}
 }

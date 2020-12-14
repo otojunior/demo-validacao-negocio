@@ -1,12 +1,10 @@
 /**
  * 
  */
-package br.org.otojunior.demo;
+package br.org.otojunior.demo.entidade;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,11 +16,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class DemoEntidade {
-	@Id
-	@GeneratedValue
-	private Long id;
-	
+public class Pessoa extends AbstractDemoEntidade {
 	@Column(nullable = false)
 	private Integer codigo;
 	
