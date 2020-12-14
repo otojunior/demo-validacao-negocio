@@ -27,7 +27,7 @@ public abstract class AbstractDemoService<E> {
 	public E salvar(
 			final E entidade,
 			final Class<? extends Validator> classeValidator,
-			final JpaRepository<E, Long> repositorio) throws ValidacaoNegocioException {
+			final JpaRepository<E, Long> repositorio) {
 		if (classeValidator != null) {
 			validar(entidade, classeValidator);
 		}
