@@ -1,15 +1,15 @@
 /**
  * 
  */
-package br.org.otojunior.demo.validacao;
+package br.org.otojunior.demo;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 
-import br.org.otojunior.demo.entidade.Pessoa;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class PessoaValidacaoNegocio extends AbstractDemoValidacaoNegocio {
+public class PessoaValidacaoNegocio implements Validator {
 	/**
 	 * {@inheritDoc}
 	 */

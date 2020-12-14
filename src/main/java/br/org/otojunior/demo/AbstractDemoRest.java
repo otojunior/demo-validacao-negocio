@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.org.otojunior.demo.rest;
+package br.org.otojunior.demo;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +12,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import br.org.otojunior.demo.validacao.ValidacaoNegocioException;
 import lombok.extern.slf4j.Slf4j;
 
 /**

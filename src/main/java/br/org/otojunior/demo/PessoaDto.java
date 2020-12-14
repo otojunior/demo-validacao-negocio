@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.org.otojunior.demo.rest;
+package br.org.otojunior.demo;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.org.otojunior.demo.service;
+package br.org.otojunior.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -11,14 +11,11 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import br.org.otojunior.demo.entidade.DemoEntidade;
-import br.org.otojunior.demo.validacao.ValidacaoNegocioException;
-
 /**
  * @author otoju
  *
  */
-public abstract class AbstractDemoService<E extends DemoEntidade> implements DemoService {
+public abstract class AbstractDemoService<E> {
 	@Autowired
 	private ApplicationContext context;
 	

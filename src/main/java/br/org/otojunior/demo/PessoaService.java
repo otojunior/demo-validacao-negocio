@@ -1,18 +1,13 @@
 /**
  * 
  */
-package br.org.otojunior.demo.service;
+package br.org.otojunior.demo;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import br.org.otojunior.demo.entidade.Pessoa;
-import br.org.otojunior.demo.repositorio.PessoaRepositorio;
-import br.org.otojunior.demo.validacao.PessoaValidacaoNegocio;
-import br.org.otojunior.demo.validacao.ValidacaoNegocioException;
 
 /**
  * @author otoju

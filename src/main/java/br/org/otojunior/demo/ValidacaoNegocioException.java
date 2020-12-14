@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.org.otojunior.demo.validacao;
+package br.org.otojunior.demo;
 
 import org.springframework.validation.Errors;
 

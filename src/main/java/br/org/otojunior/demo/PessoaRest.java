@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.org.otojunior.demo.rest;
+package br.org.otojunior.demo;
 
 import java.util.List;
 
@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.org.otojunior.demo.entidade.Pessoa;
-import br.org.otojunior.demo.service.PessoaService;
 
 /**
  * @author otoju
