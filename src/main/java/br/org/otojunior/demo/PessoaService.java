@@ -15,8 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class PessoaService extends AbstractDemoService<Pessoa> {
-	@Autowired
-	private PessoaRepositorio pessoaRepositorio;
+	@Autowired private PessoaRepositorio pessoaRepositorio;
+	@Autowired private PessoaValidacaoNegocio pessoaValidacaoNegocio;
 	
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class PessoaService extends AbstractDemoService<Pessoa> {
 	 */
 	@Transactional
 	public Pessoa inserir(final Pessoa pessoa) {
-		return salvar(pessoa, PessoaValidacaoNegocio.class, pessoaRepositorio);
+		return salvar(pessoa, pessoaValidacaoNegocio, pessoaRepositorio);
 	}
 
 	/**

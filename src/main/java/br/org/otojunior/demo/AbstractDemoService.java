@@ -3,8 +3,6 @@
  */
 package br.org.otojunior.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
@@ -16,9 +14,6 @@ import org.springframework.validation.Validator;
  *
  */
 public abstract class AbstractDemoService<E> {
-	@Autowired
-	private ApplicationContext context;
-	
 	/**
 	 * 
 	 * @param entidade
@@ -26,10 +21,10 @@ public abstract class AbstractDemoService<E> {
 	 */
 	public E salvar(
 			final E entidade,
-			final Class<? extends Validator> classeValidator,
+			final Validator validator,
 			final JpaRepository<E, Long> repositorio) {
-		if (classeValidator != null) {
-			validar(entidade, classeValidator);
+		if (validator != null) {
+			validar(entidade, validator);
 		}
 		return repositorio.saveAndFlush(entidade);
 	}
@@ -40,13 +35,13 @@ public abstract class AbstractDemoService<E> {
 	 */
 	public void validar(
 			final E entidade,
-			final Class<? extends Validator> classeValidator) {
+			final Validator validator) {
 		Errors errors = new BeanPropertyBindingResult(
 			entidade,
 			entidade.getClass().getSimpleName());
 		
 		ValidationUtils.invokeValidator(
-			context.getBean(classeValidator),
+			validator,
 			entidade,
 			errors);
 		
