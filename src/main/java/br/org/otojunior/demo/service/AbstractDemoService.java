@@ -27,7 +27,10 @@ public abstract class AbstractDemoService<E extends DemoEntidade> implements Dem
 	 * @param entidade
 	 * @throws ValidacaoNegocioException 
 	 */
-	public E salvar(E entidade, Class<? extends Validator> classeValidator, JpaRepository<E, Long> repositorio) throws ValidacaoNegocioException {
+	public E salvar(
+			final E entidade,
+			final Class<? extends Validator> classeValidator,
+			final JpaRepository<E, Long> repositorio) throws ValidacaoNegocioException {
 		validar(entidade, classeValidator);
 		return repositorio.saveAndFlush(entidade);
 	}
@@ -36,7 +39,9 @@ public abstract class AbstractDemoService<E extends DemoEntidade> implements Dem
 	 * @param entidade
 	 * @param classeValidator
 	 */
-	private void validar(E entidade, Class<? extends Validator> classeValidator) {
+	private void validar(
+			final E entidade,
+			final Class<? extends Validator> classeValidator) {
 		if (classeValidator != null) {
 			Errors errors = new BeanPropertyBindingResult(
 				entidade,

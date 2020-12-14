@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AbstractDemoRest {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(ValidacaoNegocioException.class)
-	public String handleErrors(ValidacaoNegocioException ex) {
+	public String handleErrors(final ValidacaoNegocioException ex) {
 		ex.getErrors()
 			.getAllErrors()
 			.forEach(o -> log.error("Erro: {}", o.getCode()));

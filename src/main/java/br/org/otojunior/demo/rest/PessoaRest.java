@@ -32,7 +32,7 @@ public class PessoaRest extends AbstractDemoRest {
 	 * @return
 	 */
 	@PostMapping("/pessoa")
-	public ResponseEntity<Pessoa> inserir(@RequestBody PessoaDto dto) {
+	public ResponseEntity<Pessoa> inserir(@RequestBody final PessoaDto dto) {
 		Pessoa entidade = new Pessoa();
 		entidade.setCodigo(dto.getCodigo());
 		entidade.setNome(dto.getNome());

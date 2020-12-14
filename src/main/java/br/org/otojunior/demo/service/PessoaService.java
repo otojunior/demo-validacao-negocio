@@ -30,7 +30,7 @@ public class PessoaService extends AbstractDemoService<Pessoa> {
 	 * @throws ValidacaoNegocioException 
 	 */
 	@Transactional
-	public Pessoa inserir(Pessoa pessoa) {
+	public Pessoa inserir(final Pessoa pessoa) {
 		return salvar(pessoa, PessoaValidacaoNegocio.class, pessoaRepositorio);
 	}
 

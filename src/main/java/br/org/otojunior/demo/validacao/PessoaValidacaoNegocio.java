@@ -43,7 +43,7 @@ public class PessoaValidacaoNegocio extends AbstractDemoValidacaoNegocio {
 	 * @param pessoa
 	 * @param errors
 	 */
-	private void validarCodigo(Pessoa pessoa, Errors errors) {
+	private void validarCodigo(final Pessoa pessoa, final Errors errors) {
 		log.debug("Pessoa[codigo={}]", pessoa.getCodigo());
 		if (pessoa.getCodigo().intValue() <= 0) {
 			errors.rejectValue("codigo", "pessoa.codigo.negativo");
@@ -55,7 +55,7 @@ public class PessoaValidacaoNegocio extends AbstractDemoValidacaoNegocio {
 	 * @param pessoa
 	 * @param errors
 	 */
-	private void validarNome(Pessoa pessoa, Errors errors) {
+	private void validarNome(final Pessoa pessoa, final Errors errors) {
 		log.debug("Pessoa[nome={}]", pessoa.getNome());
 		ValidationUtils.rejectIfEmpty(errors, "nome", "pessoa.nome.vazio");
 		if (pessoa.getNome() != null && pessoa.getNome().length() < 3) {
