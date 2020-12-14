@@ -22,7 +22,7 @@ import br.org.otojunior.demo.service.PessoaService;
  */
 @RestController
 @RequestMapping("/api")
-public class PessoaRest {
+public class PessoaRest extends AbstractDemoRest {
 	@Autowired
 	private PessoaService service;
 	
