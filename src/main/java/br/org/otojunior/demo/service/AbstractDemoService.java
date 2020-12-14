@@ -31,7 +31,9 @@ public abstract class AbstractDemoService<E extends DemoEntidade> implements Dem
 			final E entidade,
 			final Class<? extends Validator> classeValidator,
 			final JpaRepository<E, Long> repositorio) throws ValidacaoNegocioException {
-		validar(entidade, classeValidator);
+		if (classeValidator != null) {
+			validar(entidade, classeValidator);
+		}
 		return repositorio.saveAndFlush(entidade);
 	}
 
@@ -39,22 +41,20 @@ public abstract class AbstractDemoService<E extends DemoEntidade> implements Dem
 	 * @param entidade
 	 * @param classeValidator
 	 */
-	private void validar(
+	public void validar(
 			final E entidade,
 			final Class<? extends Validator> classeValidator) {
-		if (classeValidator != null) {
-			Errors errors = new BeanPropertyBindingResult(
-				entidade,
-				entidade.getClass().getSimpleName());
-			
-			ValidationUtils.invokeValidator(
-				context.getBean(classeValidator),
-				entidade,
-				errors);
-			
-			if (errors.hasErrors()) {
-				throw new ValidacaoNegocioException(errors);
-			}
+		Errors errors = new BeanPropertyBindingResult(
+			entidade,
+			entidade.getClass().getSimpleName());
+		
+		ValidationUtils.invokeValidator(
+			context.getBean(classeValidator),
+			entidade,
+			errors);
+		
+		if (errors.hasErrors()) {
+			throw new ValidacaoNegocioException(errors);
 		}
 	}
 }
